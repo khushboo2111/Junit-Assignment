@@ -39,11 +39,13 @@ public class UnitTest {
 	}
 	@Test
 	public void testValidRegister() {
-		Assertions.assertEquals(true, auth.Register("guptakhushboo@gmail.com", "user@1234"));
+		Assertions.assertEquals(true, auth.Register("guptaadi@gmail.com", "user@1235"));
+		Assertions.assertEquals(true, auth.Register("adisingh@gmail.com", "user@1235"));
 	}
 	
 	@Test
 	public void testInvalidRegister() {
+		Assertions.assertEquals(false, auth.Register("guptakhushboo@gmail.com", "user@1234"));
 		Assertions.assertEquals(false, auth.Register("guptakhushboo@gmail.com", "user123"));
 		Assertions.assertEquals(false, auth.Register("guptakhushboo@gmail.com", "user123"));
 		Assertions.assertEquals(false, auth.Register("guptakhushboo@gmail.com", ""));

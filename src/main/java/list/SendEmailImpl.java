@@ -11,16 +11,18 @@ public class SendEmailImpl {
 	public String email="";
 	public String password="";
 
-	public SendEmailImpl()
-	{ 
-		
-		
-	}
+	public boolean userExist(String email) {
+    	if(list.containsKey(email))
+    	{
+    		return true;
+    	}
+    	return false;
+    }
 	
 	public boolean Register(String email, String password) {
-		if(!isValidEmail(email))
+		if(!isValidEmail(email) || userExist(email))
 		{
-			System.out.println("Invalid email");
+			System.out.println("Invalid email or email already exists");
 			return false;
 		}
 		
@@ -66,13 +68,7 @@ public class SendEmailImpl {
 		return p.matcher(password).matches(); 	
     }
  
-    public boolean userExist(String email) {
-    	if(list.containsKey(email))
-    	{
-    		return true;
-    	}
-    	return false;
-    }
+    
 
     public boolean newPassword(String email, String password)
     {
