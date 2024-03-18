@@ -14,6 +14,7 @@ public class SendEmailImpl {
 	public SendEmailImpl()
 	{ 
 		
+		
 	}
 	
 	public boolean Register(String email, String password) {
@@ -75,7 +76,12 @@ public class SendEmailImpl {
 
     public boolean newPassword(String email, String password)
     {
-    	if(!isValidPassword(password))
+    	System.out.println("Email sent" + email);
+    	if(email == "")
+    	{
+    		return false;
+    	}
+    	else if(!isValidPassword(password))
     	{
     		System.out.println("Enter valid password");
     		return false;
